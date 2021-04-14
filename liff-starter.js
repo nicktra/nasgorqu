@@ -103,7 +103,7 @@ function getProfile(){
     .then(profile => {
       nama = profile.displayName;
       avatar = profile.pictureUrl;
-      lineProfile.innerHTML = `<img src="${avatar}"/> Hi, <b>${nama}</b>!`;
+      lineProfile.innerHTML = `<img class="img-fluid rounded-circle" style="max-width: 250px;" src="${avatar}" alt="${nama}"/> Hi, <b>${nama}</b>!`;
       })
     .catch((err) => {
       console.log('error', err);
