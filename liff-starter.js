@@ -68,6 +68,7 @@ function initializeApp() {
  
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
+        getProfile();
         document.getElementById('liffLoginButton').disabled = true;
     } else {
         document.getElementById('liffLogoutButton').disabled = true;
@@ -94,6 +95,20 @@ function displayIsInClientInfo() {
         document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
     }
 }
+
+function getProfile(){
+    //mendapatkan profil pengguna
+    const lineProfile = document.getElementById('getProfileAcc');
+    liff.getProfile()
+    .then(profile => {
+      nama = profile.displayName;
+      avatar = profile.pictureUrl;
+      lineProfile.innerHTML = `<img src="${avatar}"/> Hi, <b>${nama}</b>!`;
+      })
+    .catch((err) => {
+      console.log('error', err);
+    });
+};
 
 function registerButtonHandlers() {
     // openWindow call
