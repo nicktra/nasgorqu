@@ -19,7 +19,7 @@
  
 </head>
  
-<body onload="loadOrder();">
+<body>
 
 
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -91,7 +91,7 @@
                 
                 <div class="ml-3 pt-3">
                     <div class="card">
-                        <div class="card-header bg-success text-white">
+                        <div class="card-header bg-secondary text-white">
                             List Menu Makanan dan Minuman
                         </div>
                         <div class="card-body">
@@ -100,20 +100,20 @@
                                 <div class="containerpt-3 ">
                                     <div class="row">
                                         <div class="col-7 col-md-10 ">
-                                            <label class="menu">Seblak</label>
-                                            <br><label>8.000</label>
+                                            <label class="menu">Nasi Goreng</label>
+                                            <br><label>15.000</label>
                                         </div>
                                         <div class="col-5 col-md-2 ">
-                                            <input class="btn btn-success" type="submit" value="-" onclick="kurang(); total()"><label id="tambah" value="0">0</label><input class="btn btn-success" type="submit" value="+" onclick="tambah(); total()">
+                                            <input class="btn btn-danger" type="submit" value="-" onclick="removeFood1(); sumOrder()"><label id="addFood1" value="0" class="ml-2 mr-2">0</label><input class="btn btn-success" type="submit" value="+" onclick="addFood1(); sumOrder()">
                                         </div>
                                     </div>
                                     <div class="row pt-3">
                                         <div class="col-7 col-md-10 ">
-                                            <label class="menu">Makaroni Basah</label>
-                                            <br><label>5.000</label>
+                                            <label class="menu">Mie Goreng</label>
+                                            <br><label>15.000</label>
                                         </div>
                                         <div class="col-5 col-md-2 ">
-                                            <input class="btn btn-success" type="submit" value="-" onclick="kurang2(); total()"><label id="tambah2" value="0">0</label><input class="btn btn-success" type="submit" value="+" onclick="tambah2(); total()">
+                                            <input class="btn btn-danger" type="submit" value="-" onclick="removeFood2(); sumOrder()"><label id="addFood2" value="0" class="ml-2 mr-2">0</label><input class="btn btn-success" type="submit" value="+" onclick="addFood2(); sumOrder()">
                                         </div>
                                     </div>
                                 </div>
@@ -121,25 +121,25 @@
                                 <div class="containerpt-3 ">
                                     <div class="row">
                                         <div class="col-7 col-md-10 ">
-                                            <label class="menu">Es Boba</label>
-                                            <br><label>10.000</label>
+                                            <label class="menu">Es Teh</label>
+                                            <br><label>4.000</label>
                                         </div>
                                         <div class="col-5 col-md-2 ">
-                                            <input class="btn btn-success" type="submit" value="-" onclick="kurang3(); total()"><label id="tambah3" value="0">0</label><input class="btn btn-success" type="submit" value="+" onclick="tambah3(); total()">
+                                            <input class="btn btn-danger" type="submit" value="-" onclick="removeDrink1(); sumOrder()"><label id="addDrink1" value="0" class="ml-2 mr-2">0</label><input class="btn btn-success" type="submit" value="+" onclick="addDrink1(); sumOrder()">
                                         </div>
                                     </div>
                                     <div class="row pt-3">
                                         <div class="col-7 col-md-10 ">
-                                            <label class="menu">Cappucino Cincau</label>
-                                            <br><label>8.000</label>
+                                            <label class="menu">Es Jeruk</label>
+                                            <br><label>5.000</label>
                                         </div>
                                         <div class="col-5 col-md-2 ">
-                                            <input class="btn btn-success" type="submit" value="-" onclick="kurang4(); total()"><label id="tambah4" value="0">0</label><input class="btn btn-success" type="submit" value="+" onclick="tambah4(); total()">
+                                            <input class="btn btn-danger" type="submit" value="-" onclick="removeDrink2(); sumOrder()"><label id="addDrink2" value="0" class="ml-2 mr-2">0</label><input class="btn btn-success" type="submit" value="+" onclick="addDrink2(); sumOrder()">
                                         </div>
                                     </div>
                                 </div>				
                             </div>
-                            <h3>Rincian</h3>
+                            <h3>Detail Pesanan</h3>
                             <div class="row">
                                 <div class="col-1 col-md-1">
                                     Qty
@@ -156,10 +156,10 @@
                                     <label id="item1" value="0">0</label>
                                 </div>
                                 <div class="col-8 col-md-3">
-                                    Seblak
+                                    Nasi Goreng
                                 </div>
                                 <div class="col-3 col-md-3">
-                                    <label id="harga" value="0">0</label> 
+                                    <label id="price1" value="0">0</label> 
                                 </div>
                             </div>
                             <div class="row">
@@ -167,10 +167,10 @@
                                     <label id="item2" value="0">0</label>
                                 </div>
                                 <div class="col-8 col-md-3">
-                                    Makaroni Basah
+                                    Mie Goreng
                                 </div>
                                 <div class="col-3 col-md-3">
-                                    <label id="harga2" value="0">0</label> 
+                                    <label id="price2" value="0">0</label> 
                                 </div>
                             </div>
                             <div class="row">
@@ -178,10 +178,10 @@
                                     <label id="item3" value="0">0</label>
                                 </div>
                                 <div class="col-8 col-md-3">
-                                    Es Boba
+                                    Es Teh
                                 </div>
                                 <div class="col-3 col-md-3">
-                                    <label id="harga3" value="0">0</label> 
+                                    <label id="price3" value="0">0</label> 
                                 </div>
                             </div>
                             <div class="row">
@@ -189,10 +189,10 @@
                                     <label id="item4" value="0">0</label>
                                 </div>
                                 <div class="col-8 col-md-3">
-                                    Cappucino Cincau
+                                    Es Jeruk
                                 </div>
                                 <div class="col-3 col-md-3">
-                                    <label id="harga4" value="0">0</label> 
+                                    <label id="price4" value="0">0</label> 
                                 </div>
                             </div>
                             <div class="row">
@@ -204,7 +204,7 @@
                                 </div>
                             </div>
                             <button id="button_pesan" class="btn btn-success  hidden">Pesan</button>
-                            <button id="sendMessageButton" class="btn btn-success">Pesan</button>
+                            <button id="sendMessageButton" class="btn btn-success">Pesan Sekarang</button>
                         </div>
                     </div>
                 </div>
@@ -239,10 +239,10 @@
                 </table>
             </div>
             <!-- LOGIN LOGOUT BUTTONS -->
-            <div class="buttonGroup">
+            <!-- <div class="buttonGroup">
                 <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
                 <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
-            </div>
+            </div> -->
             <div id="statusMessage">
                 <div id="isInClientMessage"></div>
                 <div id="apiReferenceMessage">

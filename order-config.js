@@ -1,207 +1,90 @@
-function loadOrder() {
-    if (localStorage.list_data && localStorage.id_data) {
-        list_data = JSON.parse(localStorage.getItem('list_data'));
-        var data_app = "";
-        if (list_data.length > 0) {
-            data_app = '<table class="table table-striped table-dark">';
-            data_app += '<thead>' +
-                '<th>ID</th>' +
-                '<th>Nama</th>' +
-                '<th>Tanggal</th>' +
-                '<th>Agenda</th>' +
-                '<th>Hapus Agenda</th>' +
-                '<th>Lihat Agenda</th>' +
-                '<th>Edit Agenda</th>' +
-                '</thead> <tbody>';
-
-            for (i in list_data) {
-                data_app += '<tr>';
-                data_app +=
-                    '<td>' + list_data[i].id_data + ' </td>' +
-                    '<td>' + list_data[i].nama + ' </td>' +
-                    '<td>' + list_data[i].tanggal + ' </td>' +
-                    '<td>' + list_data[i].agenda + ' </td>' +
-                    '<td><a class="btn btn-danger btn-small" href="javascript:void(0)" onclick="hapusData(\'' + list_data[i].id_data + '\')">Hapus</a></td>' +
-                    '<td><a class="btn btn-danger btn-small" href="javascript:void(0)" onclick="lihatData(\'' + list_data[i].id_data + '\')">Lihat</a></td>' +
-                    '<td><a class="btn btn-warning btn-small" href="javascript:void(0)" onclick="editData(\'' + list_data[i].id_data + '\')">Edit</a></td>';
-                data_app += '</tr>';
-            }
-
-            data_app += '</tbody></table>';
-
-        }
-        else {
-            data_app = "Order masih kosong nih";
-        }
-
-
-        $('#list-order').html(data_app);
-        $('#list-order').hide();
-        $('#list-order').fadeIn(100);
-    }
+function addFood1() {
+    var element = document.getElementById('addFood1'); 
+    value = Number(element.getAttribute('value'))+1; 
+    element.setAttribute('value', value);
+    element.innerHTML = value;
+}
+function removeFood1() {
+    var element = document.getElementById('addFood1'); 
+    valueRemoveFood = Number(element.getAttribute('value'))-1;
+    value = (valueRemoveFood < 0) ? 0 : valueRemoveFood;
+    element.setAttribute('value', value);
+    element.innerHTML = value;
 }
 
-function editData(id) {
-
-    if (localStorage.list_data && localStorage.id_data) {
-        list_data = JSON.parse(localStorage.getItem('list_data'));
-        idx_data = 0;
-        for (i in list_data) {
-            if (list_data[i].id_data == id) {
-                $("#eid_data").val(list_data[i].id_data);
-                $("#enama").val(list_data[i].nama);
-                $("#etanggal").val(list_data[i].tanggal);
-                $("#eagenda").val(list_data[i].agenda);
-                list_data.splice(idx_data, 1);
-            }
-            idx_data++;
-        }
-        gantiMenu('edit-data');
-
-    }
-
+function addFood2() {
+    var element = document.getElementById('addFood2'); 
+    value = Number(element.getAttribute('value'))+1; 
+    element.setAttribute('value', value);
+    element.innerHTML = value;
+}
+function removeFood2() {
+    var element = document.getElementById('addFood2'); 
+    valueRemoveFood = Number(element.getAttribute('value'))-1;
+    value = (valueRemoveFood < 0) ? 0 : valueRemoveFood;
+    element.setAttribute('value', value);
+    element.innerHTML = value;
 }
 
-function lihatData(id) {
-    if (localStorage.list_data && localStorage.id_data) {
-        list_data = JSON.parse(localStorage.getItem('list_data'));
-        idx_data = 0;
-        for (i in list_data) {
-            if (list_data[i].id_data == id) {
-                $("#lid_data").val(list_data[i].id_data);
-                $("#lnama").val(list_data[i].nama);
-                $("#ltanggal").val(list_data[i].tanggal);
-                $("#lagenda").val(list_data[i].agenda);
-                list_data.splice(idx_data, 1);
-            }
-            idx_data++;
-        }
-        gantiMenu('lihat-data');
-
-    }
+function addDrink1() {
+    var element = document.getElementById('addDrink1'); 
+    value = Number(element.getAttribute('value'))+1; 
+    element.setAttribute('value', value);
+    element.innerHTML = value;
+}
+function removeDrink1() {
+    var element = document.getElementById('addDrink1'); 
+    valueRemoveDrink = Number(element.getAttribute('value'))-1;
+    value = (valueRemoveDrink < 0) ? 0 : valueRemoveDrink;
+    element.setAttribute('value', value);
+    element.innerHTML = value;
 }
 
-
-function simpanData() {
-
-    if (!liff.isInClient()) {
-        sendAlertIfNotInClient();
-    } else {
-        liff.sendMessages([{
-            'type': 'text',
-            'text': "Order baru berhasil disimpan"
-        }]).then(function() {
-            alert('Order Tersimpan');
-        }).catch(function(error) {
-            alert('Aduh kok error ya...');
-        });
-    }
-
-    nama = $('#nama').val();
-    tanggal = $('#tanggal').val();
-    agenda = $('#agenda').val();
-
-    if (localStorage.list_data && localStorage.id_data) {
-        list_data = JSON.parse(localStorage.getItem('list_data'));
-        id_data = parseInt(localStorage.getItem('id_data'));
-    }
-    else {
-        list_data = [];
-        id_data = 0;
-    }
-
-    id_data++;
-    list_data.push({ 'id_data': id_data, 'nama': nama, 'tanggal': tanggal, 'agenda': agenda });
-    localStorage.setItem('list_data', JSON.stringify(list_data));
-    localStorage.setItem('id_data', id_data);
-    document.getElementById('form-data').reset();
-    gantiMenu('list-order');
-
-    return false;
+function addDrink2() {
+    var element = document.getElementById('addDrink2'); 
+    value = Number(element.getAttribute('value'))+1; 
+    element.setAttribute('value', value);
+    element.innerHTML = value;
+}
+function removeDrink2() {
+    var element = document.getElementById('addDrink2'); 
+    valueRemoveDrink = Number(element.getAttribute('value'))-1;
+    value = (valueRemoveDrink < 0) ? 0 : valueRemoveDrink;
+    element.setAttribute('value', value);
+    element.innerHTML = value;
 }
 
-function simpanEditData() {
+function sumOrder() {
+    var addFood1 = document.getElementById('addFood1'); 
+    var addFood2 = document.getElementById('addFood2'); 
+    var addDrink1 = document.getElementById('addDrink1');
+    var addDrink2 = document.getElementById('addDrink2');
 
-    if (!liff.isInClient()) {
-        sendAlertIfNotInClient();
-    } else {
-        liff.sendMessages([{
-            'type': 'text',
-            'text': "Order yang diedit sudah tersimpan"
-        }]).then(function() {
-            alert('Order tersimpan');
-        }).catch(function(error) {
-            alert('Aduh kok error ya...');
-        });
-    }
+    var item1 = document.getElementById('item1');
+    item1.innerHTML = Number(addFood1.getAttribute('value'));
+    var item2 = document.getElementById('item2');
+    item2.innerHTML = Number(addFood2.getAttribute('value'));
+    var item3 = document.getElementById('item3');
+    item3.innerHTML = Number(addDrink1.getAttribute('value'));
+    var item4 = document.getElementById('item4');
+    item4.innerHTML = Number(addDrink2.getAttribute('value'));
 
-    id_data = $('#eid_data').val();
-    nama = $('#enama').val();
-    tanggal = $('#etanggal').val();
-    agenda = $('#eagenda').val();
+    var price1 = 15000 * Number(addFood1.getAttribute('value'));
+    var price2 = 15000 * Number(addFood2.getAttribute('value'));
+    var price3 = 4000 * Number(addDrink1.getAttribute('value'));
+    var price4 = 5000 * Number(addDrink2.getAttribute('value'));
 
-    list_data.push({ 'id_data': id_data, 'nama': nama, 'tanggal': tanggal, 'agenda': agenda });
-    localStorage.setItem('list_data', JSON.stringify(list_data));
-    document.getElementById('eform-data').reset();
-    gantiMenu('list-order');
+    var sumPrice = price1 + price2 + price3 + price4;
 
-    return false;
-}
+    subTotal1 = document.getElementById('price1');
+    subTotal1.innerHTML = price1;
+    subTotal2 = document.getElementById('price2');
+    subTotal2.innerHTML = price2;
+    subTotal3 = document.getElementById('price3');
+    subTotal3.innerHTML = price3;
+    subTotal4 = document.getElementById('price4');
+    subTotal4.innerHTML = price4;
 
-function hapusData(id) {
-
-    if (!liff.isInClient()) {
-        sendAlertIfNotInClient();
-    } else {
-        liff.sendMessages([{
-            'type': 'text',
-            'text': "Order sudah terhapus"
-        }]).then(function() {
-            alert('Order sudah dihapus');
-        }).catch(function(error) {
-            alert('Aduh kok nggak bisa');
-        });
-    }
-
-    if (localStorage.list_data && localStorage.id_data) {
-        list_data = JSON.parse(localStorage.getItem('list_data'));
-
-        idx_data = 0;
-        for (i in list_data) {
-            if (list_data[i].id_data == id) {
-                list_data.splice(idx_data, 1);
-            }
-            idx_data++;
-        }
-
-        localStorage.setItem('list_data', JSON.stringify(list_data));
-        loadOrder();
-    }
-}
-
-
-function gantiMenu(menu) {
-    if (menu == "list-order") {
-        loadOrder();
-        $('#tambah-order').hide();
-        $('#list-order').fadeIn();
-        $('#edit-data').hide();
-        $('#lihat-data').hide();
-    }
-    else if (menu == "tambah-order") {
-        $('#tambah-order').fadeIn();
-        $('#list-order').hide();
-        $('#edit-data').hide();
-        $('#lihat-data').hide();
-    } else if (menu == "edit-data") {
-        $('#edit-data').fadeIn();
-        $('#tambah-order').hide();
-        $('#list-order').hide();
-        $('#lihat-data').hide();
-    } else if (menu == "lihat-data") {
-        $('#lihat-data').fadeIn();
-        $('#edit-data').hide();
-        $('#tambah-order').hide();
-        $('#list-order').hide();
-    }
+    var total = document.getElementById('total');
+    total.innerHTML = sumPrice;
 }
