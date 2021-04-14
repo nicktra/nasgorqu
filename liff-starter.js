@@ -187,7 +187,7 @@ function buttonReceiptListener() {
     let total = document.getElementById("total");
     
     
-    let orderReceipt = "Hai, "+ namaProfile.innerHTML+"\n\n" +
+    let orderReceipt = "Hai, "+ namaProfile.innerText+"\n\n" +
     
         "Terimakasih telah memesan makanan dan minuman di NasgorQu! \n" +
     
