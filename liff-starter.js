@@ -105,7 +105,7 @@ function getProfile(){
     .then(profile => {
       nama = profile.displayName;
       avatar = profile.pictureUrl;
-      lineProfile.innerHTML = `<img class="img-fluid rounded-circle" style="max-width: 80px;" src="${avatar}" alt="${nama}"/> Hi, <b>${nama}</b>!`;
+      lineProfile.innerHTML = `<img class="img-fluid rounded-circle" style="max-width: 80px;" src="${avatar}" alt="sobat"/> Hi, <b>${nama}</b>!`;
       })
     .catch((err) => {
       console.log('error', err);
@@ -147,12 +147,13 @@ function registerButtonHandlers() {
 
     // sendMessages call
     document.getElementById('sendMessageButton').addEventListener('click', function() {
+        let receipt = buttonReceiptListener();
         if (!liff.isInClient()) {
             sendAlertIfNotInClient();
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': "Anda telah menggunakan fitur Send Message!"
+                'text': `${receipt}`
             }]).then(function() {
                 window.alert('Ini adalah pesan dari fitur Send Message');
             }).catch(function(error) {
@@ -162,6 +163,52 @@ function registerButtonHandlers() {
     });
 }
 
+// struk pesanan
+function buttonReceiptListener() {
+
+    let namaProfile = document.getElementById("getProfileAcc");
+
+    let food1 = document.getElementById("item1");
+    
+    let food2 = document.getElementById("item2");
+    
+    let drink1 = document.getElementById("item3");
+    
+    let drink2 = document.getElementById("item4");
+    
+    let subPrice1 = document.getElementById("price1");
+    
+    let subPrice2 = document.getElementById("price2");
+    
+    let subPrice3 = document.getElementById("price3");
+    
+    let subPrice4 = document.getElementById("price4");
+    
+    let total = document.getElementById("total");
+    
+    
+    let orderReceipt = "Hai, "+ namaProfile.innerHTML+"\n\n" +
+    
+        "Terimakasih telah memesan makanan dan minuman di NasgorQu! \n" +
+    
+        "Berikut adalah rincian pesanan anda: \n\n" +
+    
+        food1.innerHTML + " item Nasi Goreng : Rp. " + subPrice1.innerHTML + "\n" +
+    
+        food2.innerHTML + " item Mie Goreng : Rp. " + subPrice2.innerHTML + "\n" +
+    
+        drink1.innerHTML + " item Es Teh : Rp. " + subPrice3.innerHTML + "\n" +
+    
+        drink2.innerHTML + " item Es Jeruk : Rp. " + subPrice4.innerHTML + "\n\n" +
+    
+        "Maka,\n" +
+    
+        "Total harga Rp. " + total.innerHTML + "\n\n" +
+    
+        "Silahkan lakukan proses pembayaran di kasir ya :D";
+   
+    return orderReceipt;
+}
 /**
 * Alert the user if LIFF is opened in an external browser and unavailable buttons are tapped
 */
