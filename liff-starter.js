@@ -166,28 +166,32 @@ function registerButtonHandlers() {
 // struk pesanan
 function buttonReceiptListener() {
 
-    let namaProfile = document.getElementById("getProfileAcc");
+    let namaProfile = document.getElementById("getProfileAcc").innerText;
+    let food1 = document.getElementById("item1").innerHTML;    
+    let food2 = document.getElementById("item2").innerHTML;    
+    let drink1 = document.getElementById("item3").innerHTML;    
+    let drink2 = document.getElementById("item4").innerHTML;    
+    let subPrice1 = document.getElementById("price1").innerHTML;    
+    let subPrice2 = document.getElementById("price2").innerHTML;    
+    let subPrice3 = document.getElementById("price3").innerHTML;    
+    let subPrice4 = document.getElementById("price4").innerHTML;    
+    let total = document.getElementById("total").innerHTML;    
+    
+    let orderReceipt = `${namaProfile},
+    
+    Terima kasih telah memesan makanan dan minuman di NasgorQu, berikut adalah review pesanannya:
+    
+    ${food1} item Nasi Goreng : Rp. ${subPrice1}
+    ${food2} item Mie Goreng : Rp. ${subPrice2}
+    ${drink1} item Es Teh : Rp. ${subPrice3}
+    ${drink2} item Es Jeruk : Rp. ${subPrice4}
 
-    let food1 = document.getElementById("item1");
-    
-    let food2 = document.getElementById("item2");
-    
-    let drink1 = document.getElementById("item3");
-    
-    let drink2 = document.getElementById("item4");
-    
-    let subPrice1 = document.getElementById("price1");
-    
-    let subPrice2 = document.getElementById("price2");
-    
-    let subPrice3 = document.getElementById("price3");
-    
-    let subPrice4 = document.getElementById("price4");
-    
-    let total = document.getElementById("total");
-    
-    
-    let orderReceipt = namaProfile.innerText+"\n\n" +
+    Total harga Rp. ${total}
+
+    Pesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.
+
+    Mohon ditunggu ya!`;
+    /* let orderReceipt = namaProfile.innerText+"\n\n" +
     
         "Terimakasih telah memesan makanan dan minuman di NasgorQu! \n" +
     
@@ -205,7 +209,7 @@ function buttonReceiptListener() {
     
         "Total harga Rp. " + total.innerHTML + "\n\n" +
     
-        "Silahkan lakukan proses pembayaran di kasir ya :D";
+        "Silahkan lakukan proses pembayaran di kasir ya :D"; */
    
     return orderReceipt;
 }
