@@ -177,40 +177,21 @@ function buttonReceiptListener() {
     let subPrice4 = document.getElementById("price4").innerHTML;    
     let total = document.getElementById("total").innerHTML;    
     
-    let orderReceipt = `${namaProfile},
-    
-    Terima kasih telah memesan makanan dan minuman di NasgorQu, berikut adalah review pesanannya:
-    
-    ${food1} item Nasi Goreng : Rp. ${subPrice1}
-    ${food2} item Mie Goreng : Rp. ${subPrice2}
-    ${drink1} item Es Teh : Rp. ${subPrice3}
-    ${drink2} item Es Jeruk : Rp. ${subPrice4}
+    let orderReceipt = `${namaProfile}
 
-    Total harga Rp. ${total}
+Terima kasih telah memesan makanan dan minuman di NasgorQu, berikut adalah review pesanannya:
 
-    Pesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.
+${food1} item Nasi Goreng : Rp. ${subPrice1}
+${food2} item Mie Goreng : Rp. ${subPrice2}
+${drink1} item Es Teh : Rp. ${subPrice3}
+${drink2} item Es Jeruk : Rp. ${subPrice4}
 
-    Mohon ditunggu ya!`;
-    /* let orderReceipt = namaProfile.innerText+"\n\n" +
+Total harga Rp. ${total}
+
+Pesanan kakak akan segera diproses dan akan diberitahu jika sudah bisa diambil.
+
+Mohon ditunggu ya!`;
     
-        "Terimakasih telah memesan makanan dan minuman di NasgorQu! \n" +
-    
-        "Berikut adalah rincian pesanan anda: \n\n" +
-    
-        food1.innerHTML + " item Nasi Goreng : Rp. " + subPrice1.innerHTML + "\n" +
-    
-        food2.innerHTML + " item Mie Goreng : Rp. " + subPrice2.innerHTML + "\n" +
-    
-        drink1.innerHTML + " item Es Teh : Rp. " + subPrice3.innerHTML + "\n" +
-    
-        drink2.innerHTML + " item Es Jeruk : Rp. " + subPrice4.innerHTML + "\n\n" +
-    
-        "Maka,\n" +
-    
-        "Total harga Rp. " + total.innerHTML + "\n\n" +
-    
-        "Silahkan lakukan proses pembayaran di kasir ya :D"; */
-   
     return orderReceipt;
 }
 /**
